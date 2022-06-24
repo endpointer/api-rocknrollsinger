@@ -1,0 +1,11 @@
+{
+	"autoload": {
+		"psr-4": {
+			"RockNRollSingerApi\\": "src/RockNRollSingerApi/"
+		}
+	},
+	"require": {
+		"php": "~7",
+		"endpointer/endpointer-framework": "^1.2"
+	}
+}

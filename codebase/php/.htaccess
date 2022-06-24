@@ -1,0 +1,35 @@
+RewriteEngine on
+
+# Enable CORS
+Header always set Access-Control-Allow-Origin   "*"
+Header always set Access-Control-Allow-Headers  "Cache-Control, expires, pragma, origin, x-requested-with, content-type, Phpsessionid"
+Header always set Access-Control-Expose-Headers "Phpsessionid"
+Header always set Access-Control-Allow-Methods  "GET, POST, OPTIONS, HEADERS"
+
+# Disable CACHE
+Header always set Cache-Control "no-cache, no-store, must-revalidate"
+Header always set Pragma "no-cache"
+Header always set Expires 0
+
+# Force to request 200 for options
+RewriteCond %{REQUEST_METHOD} OPTIONS
+RewriteRule .* / [R=200,L]
+
+# M		= Module
+# EP	= Endpoint
+
+#-----------------------------------------------------------------------------------------------------------
+RewriteCond %{REQUEST_METHOD} GET
+#-----------------------------------------------------------------------------------------------------------
+
+RewriteRule ^singer/list$              index.php?M=Singer&EP=List&%{QUERY_STRING} 	  [L]
+
+RewriteRule ^singer/findByName/(.+)$   index.php?M=Singer&EP=FindByName&name=$1          [L]
+
+#-----------------------------------------------------------------------------------------------------------
+RewriteCond %{REQUEST_METHOD} POST
+#-----------------------------------------------------------------------------------------------------------
+
+RewriteRule ^singer/create$         index.php?M=Singer&EP=Create           [L]
+RewriteRule ^singer/updateName$     index.php?M=Singer&EP=UpdateName  	       [L]
+RewriteRule ^singer/delete$         index.php?M=Singer&EP=Delete  	       [L]

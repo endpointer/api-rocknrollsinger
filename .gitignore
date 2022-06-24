@@ -1,0 +1,8 @@
+codebase/php/vendor/
+codebase/php/local.json
+codebase/php/remote.json
+codebase/php/composer.lock
+
+#codebase/php/.config.ini
+
+.vscode/
