@@ -3,6 +3,6 @@ codebase/php/local.json
 codebase/php/remote.json
 codebase/php/composer.lock
 
-#codebase/php/.config.ini
+codebase/php/.config.ini
 
 .vscode/
